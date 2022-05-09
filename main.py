@@ -37,8 +37,10 @@ def work_calc(n, a, b, f):
 	Returns: the value of W(n).
 	"""
 	if n <= 1:
-    return n
+    return 1
   else:
+    x = a * work_calc(n//b, a, b, f) + f(n)
+  return x
 
 def span_calc(n, a, b, f):
 	"""Compute the span associated with the recurrence $W(n) = aW(n/b) + f(n)
@@ -53,7 +55,11 @@ def span_calc(n, a, b, f):
 	Returns: the value of W(n).
 	"""
 	# TODO
-	pass
+	if (n <=1):
+    return 1
+  else:
+    x = span_calc(n//b, a, b, f) + f(n)
+    return x
 
 def test_work():
 	""" done. """
